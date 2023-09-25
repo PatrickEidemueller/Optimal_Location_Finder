@@ -1,5 +1,7 @@
 #  Data Science Projekt Synchronisationsmodul Informatik
 
+Lukas Scharfe, Kevin Schmiedlin, Patrick Eidemüller
+
 ### Ziel des Projekts
 
 In unserer neuen Rolle als Data Scientist bei einem größeren Betrieber von Restaurants und Bars in den USA haben wir von unserer Vorgesetzten den Auftrag bekommen nach Zusammenhängen zwischen dem Wetter und Restaurant Bewertungen und Besuchen zu finden. 
