@@ -5,7 +5,7 @@ import sqlalchemy
 import pgeocode
 
 
-conn = psycopg2.connect(database="db_sync", user="kevin", password="12345678")
+conn = psycopg2.connect(database="", user="", password="")
 cur = conn.cursor()
 def sql(sql: str):
     return pd.read_sql(sql, conn)
