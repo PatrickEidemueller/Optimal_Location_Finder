@@ -7,7 +7,7 @@ tqdm.pandas()
 import sqlalchemy
 import psycopg2
 
-engine = sqlalchemy.create_engine('postgresql://kevin:12345678@127.0.0.1:5432/kevin')
+engine = sqlalchemy.create_engine('')
 
 def haversine_np(lon1, lat1, lon2, lat2):
     """
