@@ -1,0 +1,379 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 511705088 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2994), pid=1426231, tid=1426232
+#
+# JRE version:  (11.0.13+7) (build )
+# Java VM: OpenJDK 64-Bit Server VM (11.0.13+7-b1751.21, mixed mode, sharing, tiered, compressed oops, g1 gc, linux-amd64)
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/lib/systemd/systemd-coredump %P %u %g %s %t %c %h %e" (or dumping to /home/sync/gruppe-2-schnitzer/core.1426231)
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: git4idea.http.GitAskPassApp Username for 'https://code.fbi.h-da.de': 
+
+Host: Intel Core Processor (Haswell, no TSX), 4 cores, 30G, CentOS Stream release 8
+Time: Mon Jan 17 15:34:27 2022 UTC elapsed time: 7.026510 seconds (0d 0h 0m 7s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f8ec4028000):  JavaThread "Unknown thread" [_thread_in_vm, id=1426232, stack(0x00007f8ecc971000,0x00007f8ecca72000)]
+
+Stack: [0x00007f8ecc971000,0x00007f8ecca72000],  sp=0x00007f8ecca70190,  free space=1020k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xe665da]  VMError::report_and_die(int, char const*, char const*, __va_list_tag*, Thread*, unsigned char*, void*, void*, char const*, int, unsigned long)+0x38a
+V  [libjvm.so+0xe672db]  VMError::report_and_die(Thread*, char const*, int, unsigned long, VMErrorType, char const*, __va_list_tag*)+0x2b
+V  [libjvm.so+0x690a05]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*, ...)+0xc5
+V  [libjvm.so+0xbc0ea8]  os::pd_commit_memory_or_exit(char*, unsigned long, unsigned long, bool, char const*)+0xd8
+V  [libjvm.so+0xbb71dd]  os::commit_memory_or_exit(char*, unsigned long, unsigned long, bool, char const*)+0x1d
+V  [libjvm.so+0x7aa5bc]  G1PageBasedVirtualSpace::commit_preferred_pages(unsigned long, unsigned long)+0x6c
+V  [libjvm.so+0x7aa99e]  G1PageBasedVirtualSpace::commit(unsigned long, unsigned long)+0x19e
+V  [libjvm.so+0x7b4066]  G1RegionsLargerThanCommitSizeMapper::commit_regions(unsigned int, unsigned long, WorkGang*)+0x46
+V  [libjvm.so+0x82ce34]  HeapRegionManager::commit_regions(unsigned int, unsigned long, WorkGang*)+0x54
+V  [libjvm.so+0x82da40]  HeapRegionManager::make_regions_available(unsigned int, unsigned int, WorkGang*)+0x30
+V  [libjvm.so+0x82de67]  HeapRegionManager::expand_at(unsigned int, unsigned int, WorkGang*) [clone .part.25]+0xf7
+V  [libjvm.so+0x7686e0]  G1CollectedHeap::expand(unsigned long, WorkGang*, double*)+0xe0
+V  [libjvm.so+0x768de1]  G1CollectedHeap::initialize()+0x681
+V  [libjvm.so+0xe29d61]  Universe::initialize_heap()+0x41
+V  [libjvm.so+0xe2a016]  universe_init()+0x46
+V  [libjvm.so+0x84cce7]  init_globals()+0x57
+V  [libjvm.so+0xe03f3a]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x30a
+V  [libjvm.so+0x8f3871]  JNI_CreateJavaVM+0x51
+C  [libjli.so+0x3ce8]  JavaMain+0x88
+C  [libjli.so+0x89e9]  ThreadJavaMain+0x9
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000555556d4cef0, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x00007f8ec403f800 GCTaskThread "GC Thread#0" [stack: 0x00007f8ec89fb000,0x00007f8ec8afb000] [id=1426238]
+  0x00007f8ec4078800 ConcurrentGCThread "G1 Main Marker" [stack: 0x00007f8ec84f5000,0x00007f8ec85f5000] [id=1426239]
+  0x00007f8ec407a000 ConcurrentGCThread "G1 Conc#0" [stack: 0x00007f8ec83f3000,0x00007f8ec84f3000] [id=1426240]
+
+[error occurred during error reporting (printing all threads), id 0xb, SIGSEGV (0xb) at pc=0x00007f8ecad1c2d0]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007f8ec4025120] Heap_lock - owner thread: 0x00007f8ec4028000
+
+Heap address: 0x0000000618600000, size: 7802 MB, Compressed Oops mode: Non-zero based: 0x0000000618600000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (2 events):
+Event: 5.073 Protecting memory [0x00007f8ecc971000,0x00007f8ecc975000] with protection modes 0
+Event: 5.835 Loaded shared library /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libzip.so
+
+
+Dynamic libraries:
+636e00000-800000000 ---p 00000000 00:00 0 
+555556d49000-555556d6a000 rw-p 00000000 00:00 0                          [heap]
+7f8e8c000000-7f8e8c021000 rw-p 00000000 00:00 0 
+7f8e8c021000-7f8e90000000 ---p 00000000 00:00 0 
+7f8e94000000-7f8e94021000 rw-p 00000000 00:00 0 
+7f8e94021000-7f8e98000000 ---p 00000000 00:00 0 
+7f8e98b43000-7f8e9adb6000 rw-p 00000000 00:00 0 
+7f8e9adb6000-7f8eac000000 ---p 00000000 00:00 0 
+7f8eac000000-7f8eac021000 rw-p 00000000 00:00 0 
+7f8eac021000-7f8eb0000000 ---p 00000000 00:00 0 
+7f8eb0245000-7f8eb0496000 rw-p 00000000 00:00 0 
+7f8eb0496000-7f8eb13d3000 ---p 00000000 00:00 0 
+7f8eb13d3000-7f8eb1643000 rwxp 00000000 00:00 0 
+7f8eb1643000-7f8eb1963000 ---p 00000000 00:00 0 
+7f8eb1963000-7f8eb1bd3000 rwxp 00000000 00:00 0 
+7f8eb1bd3000-7f8eb8e9b000 ---p 00000000 00:00 0 
+7f8eb8e9b000-7f8eb910b000 rwxp 00000000 00:00 0 
+7f8eb910b000-7f8ec03d3000 ---p 00000000 00:00 0 
+7f8ec03d3000-7f8ec4000000 r--s 00000000 fc:01 62915815                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/modules
+7f8ec4000000-7f8ec4098000 rw-p 00000000 00:00 0 
+7f8ec4098000-7f8ec8000000 ---p 00000000 00:00 0 
+7f8ec80ee000-7f8ec83f1000 rw-p 00000000 00:00 0 
+7f8ec83f1000-7f8ec83f2000 ---p 00000000 00:00 0 
+7f8ec83f2000-7f8ec84f3000 rw-p 00000000 00:00 0 
+7f8ec84f3000-7f8ec84f4000 ---p 00000000 00:00 0 
+7f8ec84f4000-7f8ec89f9000 rw-p 00000000 00:00 0 
+7f8ec89f9000-7f8ec89fa000 ---p 00000000 00:00 0 
+7f8ec89fa000-7f8ec8b00000 rw-p 00000000 00:00 0 
+7f8ec8b00000-7f8ec8be6000 ---p 00000000 00:00 0 
+7f8ec8be6000-7f8ec8beb000 rw-p 00000000 00:00 0 
+7f8ec8beb000-7f8ec8cd1000 ---p 00000000 00:00 0 
+7f8ec8cd1000-7f8ec8cd8000 r-xp 00000000 fc:01 62915814                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libzip.so
+7f8ec8cd8000-7f8ec8ed7000 ---p 00007000 fc:01 62915814                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libzip.so
+7f8ec8ed7000-7f8ec8ed8000 r--p 00006000 fc:01 62915814                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libzip.so
+7f8ec8ed8000-7f8ec8ed9000 rw-p 00000000 00:00 0 
+7f8ec8ed9000-7f8ec97ad000 r--s 00000000 fc:01 710724                     /var/lib/sss/mc/passwd
+7f8ec97ad000-7f8ec97b7000 r-xp 00000000 fc:01 687384                     /usr/lib64/libnss_sss.so.2
+7f8ec97b7000-7f8ec99b6000 ---p 0000a000 fc:01 687384                     /usr/lib64/libnss_sss.so.2
+7f8ec99b6000-7f8ec99b7000 r--p 00009000 fc:01 687384                     /usr/lib64/libnss_sss.so.2
+7f8ec99b7000-7f8ec99b8000 rw-p 0000a000 fc:01 687384                     /usr/lib64/libnss_sss.so.2
+7f8ec99b8000-7f8ec99d3000 r-xp 00000000 fc:01 62915789                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libjimage.so
+7f8ec99d3000-7f8ec9bd2000 ---p 0001b000 fc:01 62915789                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libjimage.so
+7f8ec9bd2000-7f8ec9bd4000 r--p 0001a000 fc:01 62915789                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libjimage.so
+7f8ec9bd4000-7f8ec9bd5000 rw-p 0001c000 fc:01 62915789                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libjimage.so
+7f8ec9bd5000-7f8ec9bfe000 r-xp 00000000 fc:01 62915784                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libjava.so
+7f8ec9bfe000-7f8ec9dfe000 ---p 00029000 fc:01 62915784                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libjava.so
+7f8ec9dfe000-7f8ec9dff000 r--p 00029000 fc:01 62915784                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libjava.so
+7f8ec9dff000-7f8ec9e00000 rw-p 0002a000 fc:01 62915784                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libjava.so
+7f8ec9e00000-7f8ec9e01000 rw-p 00000000 00:00 0 
+7f8ec9e01000-7f8ec9e0e000 r-xp 00000000 fc:01 62915813                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libverify.so
+7f8ec9e0e000-7f8eca00d000 ---p 0000d000 fc:01 62915813                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libverify.so
+7f8eca00d000-7f8eca00f000 r--p 0000c000 fc:01 62915813                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/libverify.so
+7f8eca00f000-7f8eca010000 rw-p 00000000 00:00 0 
+7f8eca010000-7f8eca017000 r-xp 00000000 fc:01 296416                     /usr/lib64/librt-2.28.so
+7f8eca017000-7f8eca216000 ---p 00007000 fc:01 296416                     /usr/lib64/librt-2.28.so
+7f8eca216000-7f8eca217000 r--p 00006000 fc:01 296416                     /usr/lib64/librt-2.28.so
+7f8eca217000-7f8eca218000 rw-p 00007000 fc:01 296416                     /usr/lib64/librt-2.28.so
+7f8eca218000-7f8eca399000 r-xp 00000000 fc:01 296397                     /usr/lib64/libm-2.28.so
+7f8eca399000-7f8eca598000 ---p 00181000 fc:01 296397                     /usr/lib64/libm-2.28.so
+7f8eca598000-7f8eca599000 r--p 00180000 fc:01 296397                     /usr/lib64/libm-2.28.so
+7f8eca599000-7f8eca59a000 rw-p 00181000 fc:01 296397                     /usr/lib64/libm-2.28.so
+7f8eca59a000-7f8ecb6e6000 r-xp 00000000 fc:01 86841104                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/server/libjvm.so
+7f8ecb6e6000-7f8ecb8e5000 ---p 0114c000 fc:01 86841104                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/server/libjvm.so
+7f8ecb8e5000-7f8ecb9aa000 r--p 0114b000 fc:01 86841104                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/server/libjvm.so
+7f8ecb9aa000-7f8ecb9e5000 rw-p 01210000 fc:01 86841104                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/server/libjvm.so
+7f8ecb9e5000-7f8ecba3c000 rw-p 00000000 00:00 0 
+7f8ecba3c000-7f8ecbbf8000 r-xp 00000000 fc:01 9193                       /usr/lib64/libc-2.28.so
+7f8ecbbf8000-7f8ecbdf7000 ---p 001bc000 fc:01 9193                       /usr/lib64/libc-2.28.so
+7f8ecbdf7000-7f8ecbdfb000 r--p 001bb000 fc:01 9193                       /usr/lib64/libc-2.28.so
+7f8ecbdfb000-7f8ecbdfd000 rw-p 001bf000 fc:01 9193                       /usr/lib64/libc-2.28.so
+7f8ecbdfd000-7f8ecbe01000 rw-p 00000000 00:00 0 
+7f8ecbe01000-7f8ecbe04000 r-xp 00000000 fc:01 9195                       /usr/lib64/libdl-2.28.so
+7f8ecbe04000-7f8ecc003000 ---p 00003000 fc:01 9195                       /usr/lib64/libdl-2.28.so
+7f8ecc003000-7f8ecc004000 r--p 00002000 fc:01 9195                       /usr/lib64/libdl-2.28.so
+7f8ecc004000-7f8ecc005000 rw-p 00003000 fc:01 9195                       /usr/lib64/libdl-2.28.so
+7f8ecc005000-7f8ecc014000 r-xp 00000000 fc:01 67110223                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/jli/libjli.so
+7f8ecc014000-7f8ecc213000 ---p 0000f000 fc:01 67110223                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/jli/libjli.so
+7f8ecc213000-7f8ecc214000 r--p 0000e000 fc:01 67110223                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/jli/libjli.so
+7f8ecc214000-7f8ecc215000 rw-p 0000f000 fc:01 67110223                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/lib/jli/libjli.so
+7f8ecc215000-7f8ecc230000 r-xp 00000000 fc:01 296410                     /usr/lib64/libpthread-2.28.so
+7f8ecc230000-7f8ecc42f000 ---p 0001b000 fc:01 296410                     /usr/lib64/libpthread-2.28.so
+7f8ecc42f000-7f8ecc430000 r--p 0001a000 fc:01 296410                     /usr/lib64/libpthread-2.28.so
+7f8ecc430000-7f8ecc431000 rw-p 0001b000 fc:01 296410                     /usr/lib64/libpthread-2.28.so
+7f8ecc431000-7f8ecc435000 rw-p 00000000 00:00 0 
+7f8ecc435000-7f8ecc44a000 r-xp 00000000 fc:01 71475363                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/plugins/remote-dev-server/selfcontained/lib/libz.so.1
+7f8ecc44a000-7f8ecc649000 ---p 00015000 fc:01 71475363                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/plugins/remote-dev-server/selfcontained/lib/libz.so.1
+7f8ecc649000-7f8ecc64a000 r--p 00014000 fc:01 71475363                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/plugins/remote-dev-server/selfcontained/lib/libz.so.1
+7f8ecc64a000-7f8ecc64b000 rw-p 00015000 fc:01 71475363                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/plugins/remote-dev-server/selfcontained/lib/libz.so.1
+7f8ecc64b000-7f8ecc64c000 r-xp 00000000 fc:01 97022247                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/bin/java
+7f8ecc64c000-7f8ecc84c000 ---p 00001000 fc:01 97022247                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/bin/java
+7f8ecc84c000-7f8ecc84d000 r--p 00001000 fc:01 97022247                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/bin/java
+7f8ecc84d000-7f8ecc84e000 rw-p 00002000 fc:01 97022247                   /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/jbr/bin/java
+7f8ecc84e000-7f8ecc87a000 r-xp 00000000 fc:01 10074                      /usr/lib64/ld-2.28.so
+7f8ecc89e000-7f8ecc962000 rw-p 00000000 00:00 0 
+7f8ecc962000-7f8ecc969000 ---p 00000000 00:00 0 
+7f8ecc969000-7f8ecc971000 rw-s 00000000 fc:01 38869542                   /tmp/hsperfdata_kevin/1426231
+7f8ecc971000-7f8ecc975000 ---p 00000000 00:00 0 
+7f8ecc975000-7f8ecca74000 rw-p 00000000 00:00 0 
+7f8ecca76000-7f8ecca77000 ---p 00000000 00:00 0 
+7f8ecca77000-7f8ecca78000 r--p 00000000 00:00 0 
+7f8ecca78000-7f8ecca7a000 rw-p 00000000 00:00 0 
+7f8ecca7a000-7f8ecca7b000 r--p 0002c000 fc:01 10074                      /usr/lib64/ld-2.28.so
+7f8ecca7b000-7f8ecca7d000 rw-p 0002d000 fc:01 10074                      /usr/lib64/ld-2.28.so
+7ffcd0c38000-7ffcd0c59000 rw-p 00000000 00:00 0                          [stack]
+7ffcd0d7a000-7ffcd0d7e000 r--p 00000000 00:00 0                          [vvar]
+7ffcd0d7e000-7ffcd0d80000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+
+VM Arguments:
+java_command: git4idea.http.GitAskPassApp Username for 'https://code.fbi.h-da.de': 
+java_class_path (initial): /home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/plugins/git4idea/lib/git4idea-rt.jar:/home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/lib/3rd-party.jar:/home/kevin/.cache/JetBrains/RemoteDev/dist/0dc5aecbf587b_pycharm-professional-2021.3.1/lib/3rd-party-rt.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 511705088                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 8180989952                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5830732                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122913754                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122913754                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=/usr/libexec/git-core:/home/kevin/.local/bin:/home/kevin/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+SHELL=/bin/bash
+DISPLAY=:0.0
+LANG=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xe67330], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xe67330], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0xe67330], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0xbbba70], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0xbbba70], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0xe67330], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR2: [libjvm.so+0xbbb900], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_IGN, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGQUIT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+
+
+---------------  S Y S T E M  ---------------
+
+OS:CentOS Stream release 8
+uname:Linux 4.18.0-348.el8.x86_64 #1 SMP Tue Oct 19 15:14:17 UTC 2021 x86_64
+OS uptime: 53 days 22:29 hours
+libc:glibc 2.28 NPTL 2.28 
+rlimit (soft/hard): STACK 8192k/infinity , CORE 0k/infinity , NPROC 124525/124525 , NOFILE 262144/262144 , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK 64k/64k
+load average:6.78 3.85 3.62
+
+/proc/meminfo:
+MemTotal:       31949996 kB
+MemFree:          249908 kB
+MemAvailable:      51604 kB
+Buffers:               0 kB
+Cached:           227608 kB
+SwapCached:            0 kB
+Active:           152956 kB
+Inactive:       31121524 kB
+Active(anon):     145556 kB
+Inactive(anon): 31110444 kB
+Active(file):       7400 kB
+Inactive(file):    11080 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                28 kB
+Writeback:             4 kB
+AnonPages:      31046928 kB
+Mapped:           197104 kB
+Shmem:            209072 kB
+KReclaimable:     105196 kB
+Slab:             192020 kB
+SReclaimable:     105196 kB
+SUnreclaim:        86824 kB
+KernelStack:       10784 kB
+PageTables:       100640 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    15974996 kB
+Committed_AS:   32387504 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+Percpu:            17088 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:  21458944 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      313200 kB
+DirectMap2M:    32454656 kB
+
+/sys/kernel/mm/transparent_hugepage/enabled:
+[always] madvise never
+/sys/kernel/mm/transparent_hugepage/defrag (defrag/compaction efforts parameter):
+always defer defer+madvise [madvise] never
+
+Process Memory:
+Virtual Size: 8468644K (peak: 8993160K)
+Resident Set Size: 6944K (peak: 8240K) (anon: 6108K, file: 836K, shmem: 0K)
+Swapped out: 0K
+C-Heap outstanding allocations: 704K
+
+/proc/sys/kernel/threads-max (system-wide limit on the number of threads):
+249050
+/proc/sys/vm/max_map_count (maximum number of memory map areas a process may have):
+65530
+/proc/sys/kernel/pid_max (system-wide limit on number of process identifiers):
+4194304
+
+container (cgroup) information:
+container_type: cgroupv1
+cpu_cpuset_cpus: 0-3
+cpu_memory_nodes: 0
+active_processor_count: 4
+cpu_quota: -1
+cpu_period: 100000
+cpu_shares: -1
+memory_limit_in_bytes: -1
+memory_and_swap_limit_in_bytes: -1
+memory_soft_limit_in_bytes: -1
+memory_usage_in_bytes: 2693611520
+memory_max_usage_in_bytes: 30352121856
+
+KVM virtualization detected
+Steal ticks since vm start: 21
+Steal ticks percentage since vm start:  0.007
+
+CPU:total 4 (initial active 4) (1 cores per cpu, 1 threads per core) family 6 model 60 stepping 1 microcode 0x1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, tsc, bmi1, bmi2, fma
+CPU Model and flags from /proc/cpuinfo:
+model name	: Intel Core Processor (Haswell, no TSX)
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx rdtscp lm constant_tsc rep_good nopl xtopology cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single pti tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase bmi1 avx2 smep bmi2 erms invpcid xsaveopt arat
+Online cpus:
+0-3
+Offline cpus:
+4-15
+BIOS frequency limitation:
+<Not Available>
+Frequency switch latency (ns):
+<Not Available>
+Available cpu frequencies:
+<Not Available>
+Current governor:
+<Not Available>
+Core performance/turbo boost:
+<Not Available>
+
+Memory: 4k page, physical 31949996k(234284k free), swap 0k(0k free)
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.13+7-b1751.21) for linux-amd64 JRE (11.0.13+7-b1751.21), built on Nov 29 2021 23:57:47 by "" with gcc 8.3.1 20190311 (Red Hat 8.3.1-3)
+
+END.
