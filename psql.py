@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import sqlalchemy
 
-engine = sqlalchemy.create_engine('postgresql://kevin:12345678@127.0.0.1:5432/kevin')
+engine = sqlalchemy.create_engine('')
 #import matplotlib.pyplot as plt
 #import geopandas as gpd
 #from shapely.geometry import Point
@@ -20,7 +20,7 @@ print(stations.head())
 
 
     # Connect to an existing database
-connection = psycopg2.connect(user="kevin",password="12345678",host="127.0.0.1",port="5432",database="kevin")
+connection = psycopg2.connect(user="",password="",host=".1",port="",database="")
 
  # Create a cursor to perform database operations
 cursor = connection.cursor()
