@@ -1,7 +1,7 @@
 import psycopg2
 import pandas as pd
 
-conn = psycopg2.connect(database="lukeanpa", user="lukas", password="lukas")
+conn = psycopg2.connect(database="", user="", password="")
 #print(conn.closed)
 #print(conn.get_dsn_parameters(), "\n")
 
